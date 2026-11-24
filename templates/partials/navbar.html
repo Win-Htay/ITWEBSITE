@@ -1,0 +1,155 @@
+
+{% load static %}
+
+<header class="w-full fixed top-0 left-0 z-50 border-b border-white/5 bg-[#131522]/90 backdrop-blur-md text-white">
+    <nav class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="{% url 'home' %}" class="flex items-center gap-3 group">
+            <div class="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center">
+                <img src="{% static 'images/logo.png' %}"
+                     alt="MaBu"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform">
+            </div>
+
+            <div class="flex flex-col">
+                <span class="text-lg font-bold tracking-tight text-white leading-none">
+                    ERROR
+                </span>
+                <span class="text-[11px] text-slate-400 mt-1">
+                    Developer & Designer
+                </span>
+            </div>
+        </a>
+
+        <!-- Desktop Menu -->
+        <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <li>
+                <a href="{% url 'home' %}"
+                   class="{% if request.resolver_match.url_name == 'home' %}text-purple-400{% else %}text-slate-300 hover:text-white{% endif %} transition-colors">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'about' %}"
+                   class="{% if request.resolver_match.url_name == 'about' %}text-purple-400{% else %}text-slate-300 hover:text-white{% endif %} transition-colors">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'course' %}"
+                   class="{% if request.resolver_match.url_name == 'course' %}text-purple-400{% else %}text-slate-300 hover:text-white{% endif %} transition-colors">
+                    Courses
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'blog' %}"
+                   class="{% if request.resolver_match.url_name == 'blog' %}text-purple-400{% else %}text-slate-300 hover:text-white{% endif %} transition-colors">
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'contact' %}"
+                   class="{% if request.resolver_match.url_name == 'contact' %}text-purple-400{% else %}text-slate-300 hover:text-white{% endif %} transition-colors">
+                    Contact
+                </a>
+            </li>
+        </ul>
+
+        <!-- Right Side -->
+        <div class="flex items-center gap-3">
+
+            <!-- Theme Button (Background ပြင်ဆင်ထားသည်) -->
+            <button id="theme-toggle" aria-label="Toggle Theme"
+                class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 hover:bg-purple-500/20 hover:border-purple-500/40 transition-all shadow-sm">
+
+                <svg class="w-4 h-4" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+                </svg>
+            </button>
+
+            <!-- Hire Me -->
+            <a href="{% url 'contact' %}"
+                class="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-sm font-semibold text-white shadow-lg hover:opacity-90 transition-all">
+                Hire Me <span>&rarr;</span>
+            </a>
+
+            <!-- Mobile Button -->
+            <button id="menu-btn"
+                aria-label="Open Menu"
+                aria-expanded="false"
+                class="md:hidden w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-white">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                    stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="hidden md:hidden px-6 pb-6 pt-2 border-t border-white/5 bg-[#131522]">
+        <ul class="flex flex-col gap-4 text-sm font-medium">
+            <li>
+                <a href="{% url 'home' %}"
+                   class="{% if request.resolver_match.url_name == 'home' %}text-purple-400{% else %}text-slate-300{% endif %}">
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'about' %}"
+                   class="{% if request.resolver_match.url_name == 'about' %}text-purple-400{% else %}text-slate-300{% endif %}">
+                    About
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'course' %}"
+                   class="{% if request.resolver_match.url_name == 'course' %}text-purple-400{% else %}text-slate-300{% endif %}">
+                    Courses
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'blog' %}"
+                   class="{% if request.resolver_match.url_name == 'blog' %}text-purple-400{% else %}text-slate-300{% endif %}">
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'contact' %}"
+                   class="{% if request.resolver_match.url_name == 'contact' %}text-purple-400{% else %}text-slate-300{% endif %}">
+                    Contact
+                </a>
+            </li>
+            <li class="pt-2">
+                <a href="{% url 'contact' %}"
+                    class="flex justify-center px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
+                    Hire Me &rarr;
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!-- Spacer for Fixed Header -->
+<div class="h-[84px]"></div>
+
+<!-- Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            menuBtn.setAttribute('aria-expanded', isOpen);
+        });
+    }
+});
+</script>
